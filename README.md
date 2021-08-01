@@ -15,12 +15,12 @@ There are 2 ways to run the application on your desired platform
 
 - Option 1(recommended): Using the feature of yarn workspaces, you can choose to run the workspace commands together or choose a particular workspace and run it's commands
 
-For web
+**For web**
 ```bash
 yarn workspace @project/web start
 ```
 
-For mobile
+**For mobile**
 ```bash
 # to run the metro server
 yarn workspace @project/mobile start # after this, we build the application
