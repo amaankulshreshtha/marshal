@@ -55,6 +55,19 @@ and this shall run `yarn start` in both the workspaces.
   yarn android
   ```
 
+## Creating new and independent packages
+
+In order to create a new and independent package(**NOT** inside `packages` directory) which is managed inside the monorepo, do the following:
+- Add the name of the independent folder inside the `workspaces` field at the root level `package.json` and in the `packages` field in `lerna.json`.
+- To create module inside the new independent package, run the following command
+`npx lerna create <name-of-module> [name-of-independent-package]`
+
+
+Note: The independent packages in this folder are: 
+- `packages`
+- `linters`
+
+Check `package.json` and `lerna.json` for reference to the above.
 ## Most common errors
 
 - version mistmatches in package.json in all the packages. All the dependencies should have the same verison
