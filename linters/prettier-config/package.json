@@ -1,0 +1,10 @@
+{
+  "name": "@marshal/prettier-config",
+  "version": "1.0.0",
+  "description": "Prettier config for the project",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

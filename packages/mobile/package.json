@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@project/core": "1.0.0",
+    "@marshal/core": "1.0.0",
     "react": "^17.0.2",
     "react-native": "^0.64.2"
   },
