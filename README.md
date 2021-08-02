@@ -15,12 +15,12 @@ There are 2 ways to run the application on your desired platform
 
 - Option 1(recommended): Using the feature of yarn workspaces, you can choose to run the workspace commands together or choose a particular workspace and run it's commands
 
-For web
+**For web**
 ```bash
 yarn workspace @project/web start
 ```
 
-For mobile
+**For mobile**
 ```bash
 # to run the metro server
 yarn workspace @project/mobile start # after this, we build the application
@@ -37,14 +37,14 @@ and this shall run `yarn start` in both the workspaces.
 
 - Option 2: Open the desired platform's directory and run the following command
 
-  - For Web:
+  - **For Web**:
 
   ```bash
   cd packages/web
   yarn start
   ```
 
-  - For Mobile:
+  - **For Mobile**:
 
   ```bash
   cd packages/mobile
@@ -59,8 +59,10 @@ and this shall run `yarn start` in both the workspaces.
 
 In order to create a new and independent package(**NOT** inside `packages` directory) which is managed inside the monorepo, do the following:
 - Add the name of the independent folder inside the `workspaces` field at the root level `package.json` and in the `packages` field in `lerna.json`.
-- To create module inside the new independent package, run the following command
-`npx lerna create <name-of-module> [name-of-independent-package]`
+- To create module inside the new independent package, run the following command:
+```bash
+npx lerna create <name-of-module> [name-of-independent-package]
+```
 
 
 Note: The independent packages in this folder are: 
