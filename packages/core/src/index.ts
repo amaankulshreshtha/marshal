@@ -4,10 +4,9 @@ import * as coreUI from './ui';
 const Core = {
   hooks: coreHooks,
   ui: coreUI
-}
+};
 
 export const hooks = coreHooks;
-export const ui = coreUI ;
+export const ui = coreUI;
 
 export default Core;
-

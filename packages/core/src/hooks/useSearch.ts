@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 import { Internal } from '../utils/helpers';
 
 export default function useSearch(data: any, objectPropertyToUseForDisplayingData?: any) {
@@ -9,14 +8,13 @@ export default function useSearch(data: any, objectPropertyToUseForDisplayingDat
   );
 
   const handleInputChange = useCallback(
-    (inputEvent: NativeSyntheticEvent<TextInputChangeEventData>) => {
-      const { text } = inputEvent.nativeEvent;
-      const dataToBeDisplayedAfterUserInput = filteredCollectionAfterSearch.map((dataItem: string) => dataItem.includes(text.toString()));
+    (text: string) => {
+      const dataToBeDisplayedAfterUserInput = data.filter((dataItem: string) => dataItem.includes(text));
 
-      setSearchInputValue(text.toString());
-      setFilteredCollectionAfterSearch(dataToBeDisplayedAfterUserInput);
+      setSearchInputValue(text);
+      // setFilteredCollectionAfterSearch(dataToBeDisplayedAfterUserInput);
     },
-    [filteredCollectionAfterSearch]
+    [data]
   );
 
   return { searchInputValue, filteredCollectionAfterSearch, handleInputChange };

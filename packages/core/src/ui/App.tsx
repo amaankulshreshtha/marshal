@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 
 interface AppProps {}
 
-const App: React.FC<AppProps> = ({ }) => {
+const App: React.FC<AppProps> = () => {
   const [count, setCount] = React.useState(0);
   return (
     <View style={styles.container}>
@@ -15,12 +15,12 @@ const App: React.FC<AppProps> = ({ }) => {
   );
 };
 
-export default App
+export default App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });

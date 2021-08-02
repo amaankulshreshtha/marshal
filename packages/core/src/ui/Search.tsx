@@ -1,35 +1,52 @@
-import React from 'react';
-import { FlatList, TextInput, TextInputProps, TextStyle, View, ViewStyle } from 'react-native';
-import { useSearch } from '../hooks';
+import React, { useCallback, useMemo, useState } from 'react';
+import { FlatList, KeyboardType, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { Internal } from '../utils/helpers';
+import Searchbar from './Searchbar';
 
-interface SearchProps extends TextInputProps {
+export interface SearchProps {
   data: any;
-  searchbarStyle: ViewStyle & TextStyle;
+  searchbarStyle?: ViewStyle & TextStyle;
   objectPropertyToUseForDisplayingData?: string;
+  placeholder?: string;
+  keyboardType?: KeyboardType;
 }
 
-const Search: React.FC<SearchProps> = ({ data, searchbarStyle, objectPropertyToUseForDisplayingData, ...rest }) => {
-  const { searchInputValue, filteredCollectionAfterSearch, handleInputChange } = useSearch(data, objectPropertyToUseForDisplayingData);
+const Search: React.FC<SearchProps> = ({ data, ...rest }) => {
+  const { searchbarStyle, objectPropertyToUseForDisplayingData, placeholder, keyboardType } = rest;
 
-  const renderHeader = () => {
+  const [searchInputValue, setSearchInputValue] = useState('');
+  const [filteredCollection, setFilteredCollection] = useState(Internal.normalizeSearchData(data, objectPropertyToUseForDisplayingData));
+
+  const handleInputChange = useCallback(
+    (text: string) => {
+      const filteredData = data.filter((dataItem: string) => dataItem.includes(text));
+
+      setSearchInputValue(text);
+      setFilteredCollection(filteredData);
+    },
+    [data]
+  );
+
+  const renderHeader = useMemo(() => {
     return (
-      <TextInput
+      <Searchbar
         value={searchInputValue}
-        onChange={handleInputChange}
+        onChangeText={handleInputChange}
         style={searchbarStyle}
-        placeholder={rest.placeholder}
-        keyboardType={rest.keyboardType}
+        placeholder={placeholder}
+        keyboardType={keyboardType}
       />
     );
-  };
+  }, [handleInputChange, keyboardType, placeholder, searchInputValue, searchbarStyle]);
+
   return (
     <View>
       <FlatList
-        data={filteredCollectionAfterSearch}
+        data={filteredCollection}
         renderItem={({ item }) => {
-          return <View>{item}</View>;
+          return <Text>{item}</Text>;
         }}
-        keyExtractor={item => item.objectPropertyToUseForDisplayingData}
+        keyExtractor={(item, index) => item.objectPropertyToUseForDisplayingData || index.toString()}
         ListHeaderComponent={renderHeader}
       />
     </View>

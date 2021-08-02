@@ -4,9 +4,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,7 +13,11 @@
   ],
   "devDependencies": {
     "@marshal/eslint-config": "1.0.0",
-    "@marshal/prettier-config": "1.0.0"
+    "@marshal/prettier-config": "1.0.0",
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "lerna": "lerna"
   },
   "eslintConfig": {
     "extends": "@marshal/eslint-config"
