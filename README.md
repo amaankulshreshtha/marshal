@@ -3,7 +3,7 @@
 ## Get Started
 
 Then run the following command to install all the dependencies in the right location
-`npx lerna bootstrap`
+`yarn lerna bootstrap`
 
 Go to the `core` directory and run
 `yarn build`
@@ -17,16 +17,16 @@ There are 2 ways to run the application on your desired platform
 
 **For web**
 ```bash
-yarn workspace @project/web start
+yarn workspace @marshal/web start
 ```
 
 **For mobile**
 ```bash
 # to run the metro server
-yarn workspace @project/mobile start # after this, we build the application
-yarn workspace @project/mobile ios
+yarn workspace @marshal/mobile start # after this, we build the application
+yarn workspace @marshal/mobile ios
 # OR
-yarn workspace @project/mobile android
+yarn workspace @marshal/mobile android
 ```
 
 In event you want to run both the web and mobile servers together, you just need to run
@@ -61,7 +61,7 @@ In order to create a new and independent package(**NOT** inside `packages` direc
 - Add the name of the independent folder inside the `workspaces` field at the root level `package.json` and in the `packages` field in `lerna.json`.
 - To create module inside the new independent package, run the following command:
 ```bash
-npx lerna create <name-of-module> [name-of-independent-package]
+yarn lerna create <name-of-module> [name-of-independent-package]
 ```
 
 
