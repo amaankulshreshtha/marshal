@@ -87,7 +87,10 @@ Check `package.json` and `lerna.json` for reference to the above.
 
 ## Tips
 - To get a list of emulators; run this command: `emulator -list-avds`
-- To increase performance of emulator; run this command:  ```emulator -gpu host -feature HVF -avd <name-of-avd-from-list>```
+- To increase performance of emulator; run this command:  
+```bash
+emulator -gpu host -feature HVF -avd <name-of-avd-from-list>
+```
 - If you want to change the JDK version in android studio: [answer for this](https://stackoverflow.com/a/67414820/7879090)
 
 ## References
