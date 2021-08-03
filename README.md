@@ -2,11 +2,15 @@
 
 ## Get Started
 
-Then run the following command to install all the dependencies in the right location
-`yarn lerna bootstrap`
+Run the following command to install all the dependencies in the right location
+```bash
+yarn lerna bootstrap
+```
 
 Go to the `core` directory and run
-`yarn build`
+```bash
+yarn build
+```
 This will build the files in the `core` directory and it will be ready to use
 
 
