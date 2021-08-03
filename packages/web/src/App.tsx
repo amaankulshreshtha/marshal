@@ -1,4 +1,11 @@
-import { ui } from '@project/core';
+import { store, ui } from '@marshal/core';
+import { Provider } from 'react-redux';
+const { Search } = ui;
 
-const { App } = ui;
-export default App;
+export default function WebApp() {
+  return (
+    <Provider store={store}>
+      <Search data={Array.from(new Array(10)).map((_, index) => index.toString())} />
+    </Provider>
+  );
+}

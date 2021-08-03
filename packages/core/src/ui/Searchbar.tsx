@@ -5,6 +5,7 @@ interface SearchbarProps extends TextInputProps {}
 
 const Searchbar: React.FC<SearchbarProps> = ({ ...rest }) => {
   const { value, onChangeText, style: searchbarStyle, placeholder, keyboardType } = rest;
+
   return (
     <TextInput
       value={value}

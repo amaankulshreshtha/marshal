@@ -1,5 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { FlatList, KeyboardType, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { useAppDispatch } from '../hooks';
+import { actions } from '../store';
 import { Internal } from '../utils/helpers';
 import Searchbar from './Searchbar';
 
@@ -16,12 +18,14 @@ const Search: React.FC<SearchProps> = ({ data, ...rest }) => {
 
   const [searchInputValue, setSearchInputValue] = useState('');
   const [filteredCollection, setFilteredCollection] = useState(Internal.normalizeSearchData(data, objectPropertyToUseForDisplayingData));
-
+  const dispatch = useAppDispatch();
+  
   const handleInputChange = useCallback(
     (text: string) => {
       const filteredData = data.filter((dataItem: string) => dataItem.includes(text));
 
       setSearchInputValue(text);
+      dispatch(actions.search.saveUserInput(text));
       setFilteredCollection(filteredData);
     },
     [data]
