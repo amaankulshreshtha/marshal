@@ -5,13 +5,9 @@
 Run the following command to install all the dependencies in the right location
 ```bash
 yarn lerna bootstrap
+yarn workspace @marshal/core run build:w
 ```
-
-Go to the `core` directory and run
-```bash
-yarn build
-```
-This will build the files in the `core` directory and it will be ready to use
+This will build the files in the `core` directory and it will be ready to use. All changes to the files in the `core` directory will be "watched" and those changes will be reflected wherever these files are being consumed.
 
 
 ## Running the application
