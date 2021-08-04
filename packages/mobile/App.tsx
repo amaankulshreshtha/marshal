@@ -1,4 +1,4 @@
-import { ui } from '@project/core';
+import { ui } from '@marshal/core';
 
 const { App } = ui;
 
