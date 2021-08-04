@@ -6,7 +6,9 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
-    '@react-native-community'
+    '@react-native-community',
+    'next',
+    'next/core-web-vitals'
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
