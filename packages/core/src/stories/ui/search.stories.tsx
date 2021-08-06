@@ -20,4 +20,4 @@ const meta: Meta = {
 
 export default meta;
 
-export const Default = () => <Search data={['a', 'b', 'c']} />;
+export const Default = () => <Search data={Array.from(new Array(10)).map((_, index) => index.toString())} />;
