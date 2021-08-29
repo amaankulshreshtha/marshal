@@ -76,6 +76,7 @@ Check `package.json` and `lerna.json` for reference to the above.
 - Wrong node modules path in the mobile app native ios and android configs.
 - while building ios, react-native directory won't be found in mobile/node_modules
 - android builds might fail because of gradle versions
+- [CP-User]PhaseExecutionScript error.
 
 ## Solutions
 - make all versions the same and use lerna to manage the installation of node_modules
@@ -84,6 +85,16 @@ Check `package.json` and `lerna.json` for reference to the above.
 - Do the following in case of failed builds:
   - Go to `android/gradle/wrapper/gradle-wrapper.properties`, and change the value of `distributionUrl` to `https\://services.gradle.org/distributions/gradle-6.7.1-bin.zip` like  this `distributionUrl=https\://services.gradle.org/distributions/gradle-6.7.1-bin.zip`
   - Download JDK 11 and set your `$JAVA_HOME` variable to JDK 11
+  - The PhaseExecutionScript error occurs because of nvm. Do the following:
+   - 
+   ```bash
+   unset npm_config_prefix
+   ```
+   - 
+   ```bash
+   nvm unalias default
+   ```
+   
 
 ## Tips
 - To get a list of emulators; run this command: `emulator -list-avds`
