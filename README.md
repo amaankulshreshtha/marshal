@@ -74,7 +74,7 @@ Check `package.json` and `lerna.json` for reference to the above.
 
 - version mistmatches in package.json in all the packages. All the dependencies should have the same verison
 - Wrong node modules path in the mobile app native ios and android configs.
-- while building ios, react-native directory won't be found in mobile/node_modules
+- while building ios, react-native directory won't be found in `mobile/node_modules`
 - android builds might fail because of gradle versions
 - `[CP-User]PhaseExecutionScript` error.
 
