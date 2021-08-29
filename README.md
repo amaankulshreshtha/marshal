@@ -86,11 +86,9 @@ Check `package.json` and `lerna.json` for reference to the above.
   - Go to `android/gradle/wrapper/gradle-wrapper.properties`, and change the value of `distributionUrl` to `https\://services.gradle.org/distributions/gradle-6.7.1-bin.zip` like  this `distributionUrl=https\://services.gradle.org/distributions/gradle-6.7.1-bin.zip`
   - Download JDK 11 and set your `$JAVA_HOME` variable to JDK 11
   - The PhaseExecutionScript error occurs because of nvm. Do the following:
-   - 
    ```bash
    unset npm_config_prefix
    ```
-   - 
    ```bash
    nvm unalias default
    ```
