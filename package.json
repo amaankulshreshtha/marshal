@@ -18,7 +18,14 @@
   },
   "scripts": {
     "lerna": "lerna",
-    "ios": "yarn lerna run --scope @marshal/mobile ios"
+    "bootstrap": "lerna bootstrap",
+    "metro": "yarn workspace @marshal/mobile start",
+    "ios": "yarn workspace @marshal/mobile ios",
+    "android": "yarn workspace @marshal/mobile android",
+    "core:build": "yarn workspace @marshal/core build",
+    "core:build:w": "yarn workspace @marshal/core build:w",
+    "core:sb": "yarn workspace @marshal/core storybook",
+    "web:dev": "yarn workspace @marshal/web dev"
   },
   "eslintConfig": {
     "extends": "@marshal/eslint-config"
