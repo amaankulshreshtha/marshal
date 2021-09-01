@@ -4,5 +4,8 @@ module.exports = {
   jsxBracketSameLine: false,
   singleQuote: true,
   trailingComma: 'none',
-  arrowParens: 'avoid'
+  arrowParens: 'avoid',
+  importOrder: ['^@marshal/(.*)$'],
+  importOrderSeparation: true,
+  experimentalBabelParserPluginsList: ['tsx', 'typescript']
 };

@@ -14,10 +14,17 @@
   "devDependencies": {
     "@marshal/eslint-config": "1.0.0",
     "@marshal/prettier-config": "1.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
     "lerna": "^4.0.0"
   },
   "scripts": {
     "lerna": "lerna",
+    "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "metro": "yarn workspace @marshal/mobile start",
     "ios": "yarn workspace @marshal/mobile ios",
@@ -28,7 +35,16 @@
     "web:dev": "yarn workspace @marshal/web dev"
   },
   "eslintConfig": {
-    "extends": "@marshal/eslint-config"
+    "extends": [
+      "standard-with-typescript",
+      "@marshal/eslint-config"
+    ],
+    "parserOptions": {
+      "project": [
+        "./tsconfig.json",
+        "packages/**/tsconfig.json"
+      ]
+    }
   },
   "prettier": "@marshal/prettier-config"
 }
