@@ -1,37 +1,54 @@
 {
   "private": "true",
-  "name": "marshal",
+  "name": "project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "workspaces": [
-    "packages/*",
-    "linters/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "linters/*"
+    ]
+  },
   "devDependencies": {
     "@marshal/eslint-config": "1.0.0",
     "@marshal/prettier-config": "1.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "devmoji": "^2.3.0",
+    "husky": "^7.0.0",
     "lerna": "^4.0.0"
   },
   "scripts": {
     "lerna": "lerna",
     "clean": "lerna clean",
-    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test",
     "metro": "yarn workspace @marshal/mobile start",
-    "ios": "yarn workspace @marshal/mobile ios",
-    "android": "yarn workspace @marshal/mobile android",
-    "core:build": "yarn workspace @marshal/core build",
-    "core:build:w": "yarn workspace @marshal/core build:w",
-    "core:sb": "yarn workspace @marshal/core storybook",
-    "web:dev": "yarn workspace @marshal/web dev"
+    "pod-install": "cd packages/mobile/ios && pod update && pod install && cd -",
+    "gradle-clean": "cd packages/mobile/android && ./gradlew clean && cd -",
+    "ios": "lerna run --stream --scope @marshal/mobile ios",
+    "android": "lerna run --stream --scope @marshal/mobile android",
+    "core:build": "lerna run --stream --scope @marshal/core build",
+    "core:build:w": "lerna run --parallel --scope @marshal/core build:w",
+    "core:sb": "lerna run --parallel --scope @marshal/core storybook",
+    "web:dev": "lerna run --parallel --scope @marshal/web dev",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
       "@marshal/eslint-config"
     ]
   },
-  "prettier": "@marshal/prettier-config"
+  "eslintIgnore": [
+    "*.d.ts"
+  ],
+  "prettier": "@marshal/prettier-config",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

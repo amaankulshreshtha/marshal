@@ -19,8 +19,19 @@ module.exports = {
     ],
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': ['error', { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' }],
+    '@typescript-eslint/space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always'
+      }
+    ],
     '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-empty-interface': 'warn',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-invalid-void-type': 'off',
     '@typescript-eslint/semi': ['error', 'always'],
     '@typescript-eslint/member-delimiter-style': [
       'error',
@@ -31,7 +42,7 @@ module.exports = {
         },
         singleline: {
           delimiter: 'semi',
-          requireLast: true
+          requireLast: false
         }
       }
     ]

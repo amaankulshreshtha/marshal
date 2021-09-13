@@ -7,12 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "@marshal/core": "1.0.0",
     "react": "^17.0.2",
-    "react-native": "^0.64.2"
+    "react-native": "^0.64.2",
+    "react-native-reanimated": "^2.2.1",
+    "react-native-redash": "^16.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

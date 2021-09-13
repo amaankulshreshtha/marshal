@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# yarn workspaces run precommit -p 3
+yarn lerna run --concurrency 1 --since HEAD --exclude-dependents precommit
