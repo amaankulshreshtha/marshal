@@ -65,6 +65,17 @@ yarn metro # after this, we build the application
 yarn android
 ```
 
+## Building the application
+
+**For android**
+
+```bash
+cd packages/mobile/android
+./gradlew assembleRelease
+```
+
+The generated APK will be at `packages/mobile/android/app/build/outputs/apk/release/app-release.apk`
+
 ## Commiting the code
 
 This repository follows commit guidelines provided by commitizen. To verify the installation of commitizen, you can run `git cz`.
@@ -97,6 +108,8 @@ Check `package.json` and `lerna.json` for reference to the above.
 - Android builds might fail because of gradle versions
 - `tried to synchronously call function from a different thread`
 - `config["reactNativePath"] not working`
+- Emulator process not killed (Windows)
+- Application Building Issues for android
 
 ## Solutions
 
@@ -108,6 +121,8 @@ Check `package.json` and `lerna.json` for reference to the above.
   - Download JDK 11 and set your `$JAVA_HOME` variable to JDK 11
 - Refer to [yarn-workspaces-reanimated](https://github.com/nikolaigeorgie/yarn-workspaces-reanimated) repository for the setup
 - Follow [this](https://github.com/facebook/react-native/issues/29371#issuecomment-658523434) solution
+- `taskkill /F /IM "qemu-system-x86_64.exe" /T`
+- Fix `node_modules` paths in `project.ext.rect` inside `app/build.gradle`
 
 ## Tips
 
@@ -125,3 +140,4 @@ emulator -gpu host -feature HVF -avd <name-of-avd-from-list>
 - [Edits to be made in cofig files](https://medium.com/@ratebseirawan/react-native-0-63-monorepo-walkthrough-36ea27d95e26)
 - [Commit message style](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type)
 - [Fix for reanimated error: tried to synchronously call...](https://github.com/software-mansion/react-native-reanimated/issues/1720#issuecomment-789287795)
+- [Project Ext React](https://github.com/facebook/react-native/blob/4305a291a9408ca65847994bbec42f1fbc97071d/RNTester/android/app/build.gradle)
