@@ -20,13 +20,13 @@
 - You need to install commitizen globally for when you commit the code.
 
 ```bash
-yarn global add commitizen
+yarn global add git-cz
 ```
 
 Or
 
 ```bash
-npm i -g commitizen
+npm i -g git-cz
 ```
 
 ## Getting Started
@@ -67,7 +67,7 @@ yarn android
 
 ## Building the application
 
-**For android**
+**For Android**
 
 ```bash
 cd packages/mobile/android
@@ -75,6 +75,23 @@ cd packages/mobile/android
 ```
 
 The generated APK will be at `packages/mobile/android/app/build/outputs/apk/release/app-release.apk`
+
+_Generating signature hash for android_
+
+```bash
+# DEV
+keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+# PROD
+keytool -exportcert -alias SIGNATURE_ALIAS -keystore PATH_TO_KEYSTORE | openssl sha1 -binary | openssl base64
+```
+
+**For iOS**
+
+```bash
+cd packages/mobile
+npx react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/main.jsbundle --assets-dest ios
+xcodebuild clean archive -workspace $(pwd)/mobile.xcworkspace -scheme mobile -archivePath $(pwd)/build/mobile.xarchive | xcpretty
+```
 
 ## Commiting the code
 
@@ -141,3 +158,4 @@ emulator -gpu host -feature HVF -avd <name-of-avd-from-list>
 - [Commit message style](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type)
 - [Fix for reanimated error: tried to synchronously call...](https://github.com/software-mansion/react-native-reanimated/issues/1720#issuecomment-789287795)
 - [Project Ext React](https://github.com/facebook/react-native/blob/4305a291a9408ca65847994bbec42f1fbc97071d/RNTester/android/app/build.gradle)
+- [Anroid Project Signing](https://developer.android.com/studio/publish/app-signing)
