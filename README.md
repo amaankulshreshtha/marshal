@@ -149,6 +149,7 @@ Check `package.json` and `lerna.json` for reference to the above.
 - `config["reactNativePath"] not working`
 - Emulator process not killed (Windows)
 - Application Building Issues for android
+- Release build application crash on iOS
 
 ## Solutions
 
@@ -162,6 +163,7 @@ Check `package.json` and `lerna.json` for reference to the above.
 - Follow [this](https://github.com/facebook/react-native/issues/29371#issuecomment-658523434) solution
 - `taskkill /F /IM "qemu-system-x86_64.exe" /T`
 - Fix `node_modules` paths in `project.ext.rect` inside `app/build.gradle`
+- Add `#ifdef DEBUG` before `#ifdef FB_SONARKIT_ENABLED` on line 7 and 30.
 
 ## Tips
 
