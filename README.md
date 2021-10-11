@@ -17,7 +17,7 @@
 ## Prerequisites
 
 - Follow the instructions from the [React Native Dev Env Setup](https://reactnative.dev/docs/0.64/environment-setup#installing-dependencies)
-- You need to install commitizen globally for when you commit the code.
+- You need to install `git-cz` globally for when you commit the code.
 
 ```bash
 yarn global add git-cz
@@ -42,13 +42,13 @@ This will build the files in the `core` directory and it will be ready to use. A
 
 ## Running the application
 
-**For web**
+### For web
 
 ```bash
 yarn web:dev
 ```
 
-**For iOS**
+### For iOS
 
 ```bash
 # to run the metro server
@@ -57,7 +57,7 @@ yarn pod-install
 yarn ios
 ```
 
-**For Android**
+### For Android
 
 ```bash
 # to run the metro server
@@ -65,9 +65,48 @@ yarn metro # after this, we build the application
 yarn android
 ```
 
+## Changing the display name and bundle IDs of the application
+
+### For Andoid
+
+- Change the `applicationId` property of `defaultConfig` inside `android/app/build.gradle`.
+- As per convention, the package name inside `app/src/java` should match the applicationId. In order to achieve that, do the following:
+
+  1. Open the `android` folder inside android studio.
+  2. Expand `app/src`.
+
+  **For `main` inside `app/src`**
+
+  3. Expand `main`.
+  4. Right click on `java` and choose `New > Package`.
+  5. Enter the `applicationId` and press `⏎`.
+  6. Select all the java files under the previous `applicationId` package and drag them under the newly created package.
+
+  **For `debug` inside `app/src`**
+
+  7. Expand `debug`.
+  8. Repeat steps 4-6.
+
+- Open `android/app/src/main/AndroidManifest.xml`.
+- Change the `package` attribute on line 2 to the new `applicationId`.
+- Open `android/app/src/main/res/values/strings.xml`.
+- Change the `app_name` string value to the desired name.
+
+### For iOS
+
+- Open `mobile.xcworkspace` inside XCode.
+- Press the project navigator icon.
+- Click on the `General` tab.
+- Change the display name to the desired name in the _Display Name_ input field.
+- Change the bundleID to the desired id in the _Bundle Identifier_ input field.
+- Click on the `Build Settings` tab.
+- Search for `PRODUCT_NAME`.
+- Double click on the value to start editing.
+- Type the value of the display name and press `⏎`.
+
 ## Building the application
 
-**For Android**
+### For Android
 
 ```bash
 cd packages/mobile/android
@@ -75,23 +114,6 @@ cd packages/mobile/android
 ```
 
 The generated APK will be at `packages/mobile/android/app/build/outputs/apk/release/app-release.apk`
-
-_Generating signature hash for android_
-
-```bash
-# DEV
-keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
-# PROD
-keytool -exportcert -alias SIGNATURE_ALIAS -keystore PATH_TO_KEYSTORE | openssl sha1 -binary | openssl base64
-```
-
-**For iOS**
-
-```bash
-cd packages/mobile
-npx react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/main.jsbundle --assets-dest ios
-xcodebuild clean archive -workspace $(pwd)/mobile.xcworkspace -scheme mobile -archivePath $(pwd)/build/mobile.xarchive | xcpretty
-```
 
 ## Commiting the code
 
@@ -158,4 +180,3 @@ emulator -gpu host -feature HVF -avd <name-of-avd-from-list>
 - [Commit message style](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type)
 - [Fix for reanimated error: tried to synchronously call...](https://github.com/software-mansion/react-native-reanimated/issues/1720#issuecomment-789287795)
 - [Project Ext React](https://github.com/facebook/react-native/blob/4305a291a9408ca65847994bbec42f1fbc97071d/RNTester/android/app/build.gradle)
-- [Anroid Project Signing](https://developer.android.com/studio/publish/app-signing)
