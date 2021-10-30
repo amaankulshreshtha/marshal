@@ -182,3 +182,5 @@ emulator -gpu host -feature HVF -avd <name-of-avd-from-list>
 - [Commit message style](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type)
 - [Fix for reanimated error: tried to synchronously call...](https://github.com/software-mansion/react-native-reanimated/issues/1720#issuecomment-789287795)
 - [Project Ext React](https://github.com/facebook/react-native/blob/4305a291a9408ca65847994bbec42f1fbc97071d/RNTester/android/app/build.gradle)
+- [Setup Splash Screen](https://www.youtube.com/watch?v=H0CC1UsvjDQ)
+- [Fix white flash after splash screen error](https://aryan-mittal.medium.com/react-native-fix-blank-flash-after-splash-screen-70fce075423f)
