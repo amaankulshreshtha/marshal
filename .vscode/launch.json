@@ -1,0 +1,39 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-msedge",
+      "request": "launch",
+      "name": "Launch Edge against localhost",
+      "url": "http://localhost:3000/",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Attach to Hermes application - Experimental",
+      "request": "attach",
+      "type": "reactnativedirect",
+      "cwd": "${workspaceFolder}/packages/mobile",
+      "address": "localhost",
+      "port": 8081
+    },
+    {
+      "name": "Debug Android Hermes - Experimental",
+      "cwd": "${workspaceFolder}/packages/mobile",
+      "type": "reactnativedirect",
+      "request": "launch",
+      "platform": "android",
+      "variant": "devDebug"
+    },
+    {
+      "name": "Debug iOS Hermes - Experimental",
+      "cwd": "${workspaceFolder}/packages/mobile",
+      "type": "reactnativedirect",
+      "request": "launch",
+      "platform": "ios",
+      "runArguments": ["--scheme=mobileDev", "--configuration=DevDebug", "--simulator=\"iPhone 13\""]
+    }
+  ]
+}

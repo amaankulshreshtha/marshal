@@ -1,12 +1,19 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"label": "ios",
-			"type": "npm",
-			"script": "ios",
-			"problemMatcher": [],
-			"detail": "running ios..."
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ios",
+      "type": "npm",
+      "script": "ios",
+      "problemMatcher": [],
+      "detail": "running ios..."
+    },
+    {
+      "label": "metro",
+      "type": "npm",
+      "script": "metro",
+      "problemMatcher": [],
+      "detail": "running packager..."
+    }
+  ]
 }
