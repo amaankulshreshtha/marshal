@@ -14,9 +14,7 @@
 - [Tips](#tips)
 - [References](#references)
 
-## Todo
-
-- [ ] Upgrade to RN > 0.64
+**[Todo List](./TODO)**
 
 ## Prerequisites
 
