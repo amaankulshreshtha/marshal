@@ -31,7 +31,7 @@ module.exports = {
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
-  scopes: ['cl-config', 'core', 'fastlane', 'husky', 'mobile', 'README', 'root', 'eslint', 'prettier'],
+  scopes: ['changelog', 'core', 'fastlane', 'husky', 'mobile', 'README', 'root', 'eslint', 'prettier'],
   types: {
     format: {
       emoji: '🎨',
