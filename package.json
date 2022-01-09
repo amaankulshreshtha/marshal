@@ -35,7 +35,8 @@
     ]
   },
   "eslintIgnore": [
-    "*.d.ts"
+    "*.d.ts",
+    "*.js"
   ],
   "prettier": "@marshal/prettier-config",
   "config": {

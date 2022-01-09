@@ -29,7 +29,7 @@ module.exports = {
       }
     ],
     'no-return-await': 'off',
-    '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+    '@typescript-eslint/return-await': 'error',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
