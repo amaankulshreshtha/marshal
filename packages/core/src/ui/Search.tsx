@@ -1,9 +1,10 @@
-import React, { useCallback, useMemo, useState } from 'react';
 import { FlatList, KeyboardType, Text, TextStyle, View, ViewStyle } from 'react-native';
-import { useAppDispatch } from '../hooks';
-import { actions } from '../store';
+import React, { useCallback, useMemo, useState } from 'react';
+
 import { Internal } from '../utils/helpers';
 import Searchbar from './Searchbar';
+import { actions } from '../store';
+import { useAppDispatch } from '../hooks';
 
 export interface SearchProps {
   data: any;
@@ -19,16 +20,16 @@ const Search: React.FC<SearchProps> = ({ data, ...rest }) => {
   const [searchInputValue, setSearchInputValue] = useState('');
   const [filteredCollection, setFilteredCollection] = useState(Internal.normalizeSearchData(data, objectPropertyToUseForDisplayingData));
   const dispatch = useAppDispatch();
-  
+
   const handleInputChange = useCallback(
     (text: string) => {
       const filteredData = data.filter((dataItem: string) => dataItem.includes(text));
 
       setSearchInputValue(text);
-      dispatch(actions.search.saveUserInput(text));
+      void dispatch(actions.search.saveUserInput(text));
       setFilteredCollection(filteredData);
     },
-    [data]
+    [data, dispatch]
   );
 
   const renderHeader = useMemo(() => {
@@ -50,7 +51,7 @@ const Search: React.FC<SearchProps> = ({ data, ...rest }) => {
         renderItem={({ item }) => {
           return <Text>{item}</Text>;
         }}
-        keyExtractor={(item, index) => item.objectPropertyToUseForDisplayingData || index.toString()}
+        keyExtractor={(item, index) => item.objectPropertyToUseForDisplayingData ?? index.toString()}
         ListHeaderComponent={renderHeader}
       />
     </View>

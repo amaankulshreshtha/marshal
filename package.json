@@ -1,16 +1,18 @@
 {
   "private": "true",
-  "name": "marshal",
+  "name": "project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "workspaces": [
-    "packages/*",
-    "linters/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "linters/*"
+    ]
+  },
   "devDependencies": {
     "@marshal/eslint-config": "1.0.0",
     "@marshal/prettier-config": "1.0.0",
@@ -28,7 +30,17 @@
     "prepare": "husky install"
   },
   "eslintConfig": {
-    "extends": "@marshal/eslint-config"
+    "extends": [
+      "@marshal/eslint-config"
+    ]
   },
-  "prettier": "@marshal/prettier-config"
+  "eslintIgnore": [
+    "*.d.ts"
+  ],
+  "prettier": "@marshal/prettier-config",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
