@@ -1,0 +1,24 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+PINK="\033[1;35m"
+CYAN="\033[0;36m"
+NC="\033[0m" # NO COLOR
+
+function changed {
+  git diff --name-only HEAD@{1} HEAD | grep "^$1" > /dev/null 2>&1
+}
+
+if changed 'yarn.lock'; then
+  echo "${PINK}=======================================${NC}"
+  echo "🔒 ${CYAN}yarn.lock changed.\n📦 Run yarn.${NC}"
+  echo "${PINK}=======================================${NC}"
+fi
+
+cd packages/mobile/ios
+
+if changed 'Podfile.lock'; then
+  echo "${PINK}=======================================${NC}"
+  echo "🔒 ${CYAN}Podfile.lock changed.\n📦 Run yarn pod-install.${NC}"
+  echo "${PINK}=======================================${NC}"
+fi

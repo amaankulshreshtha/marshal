@@ -14,11 +14,18 @@
   "devDependencies": {
     "@marshal/eslint-config": "1.0.0",
     "@marshal/prettier-config": "1.0.0",
+    "husky": "^7.0.0",
     "lerna": "^4.0.0"
   },
   "scripts": {
+    "mobile": "yarn --cwd packages/mobile",
     "lerna": "lerna",
-    "ios": "yarn lerna run --scope @marshal/mobile ios"
+    "clean": "lerna clean",
+    "metro": "lerna run --scope --stream @marshal/mobile start",
+    "pod-install": "lerna run --scope --stream @marshal/mobile pod-install",
+    "android": "lerna run --scope --stream @marshal/mobile android",
+    "ios": "lerna run --scope @marshal/mobile ios",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "@marshal/eslint-config"
