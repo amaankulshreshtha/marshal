@@ -14,6 +14,10 @@
 - [Tips](#tips)
 - [References](#references)
 
+## Todo
+
+- [ ] Upgrade to RN > 0.64
+
 ## Prerequisites
 
 - Follow the instructions from the [React Native Dev Env Setup](https://reactnative.dev/docs/0.64/environment-setup#installing-dependencies)
