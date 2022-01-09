@@ -1,5 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo "Running 'prepare-commit-msg' hook 😍 ..."
-./node_modules/.bin/devmoji -e $1
